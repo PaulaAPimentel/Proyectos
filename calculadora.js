@@ -53,3 +53,9 @@ cadena = "Las Flores son Azules"
 cadena.substring(4,9)
 
 console.log (cadena.substring(4,10))
+
+
+function recomendacion(){
+    let turismo = 
+    [Bogota"frio"]
+}
