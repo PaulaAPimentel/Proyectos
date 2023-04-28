@@ -4,6 +4,7 @@ function iniciarJuego(){
 }
 
 
+
 function seleccionarMascotaJugador(){
 
     //Variables escoger mascota
@@ -17,6 +18,7 @@ function seleccionarMascotaJugador(){
     let spanvidajugador = document.getElementById("vidas-jugador")
     let spanvidaenemigo = document.getElementById("vidas-enemigo")
    
+    //Elección Mascota Jugador
     if(inputcharmender.checked){
         spanmascotajugador.innerHTML = ("CHARMENDER🔥")
     }
@@ -38,14 +40,26 @@ function seleccionarMascotaJugador(){
     else{
         alert("👎NO HAZ ALEGIDO ALGUNA DE LAS OPCIONES- TRY AGAIN👎")
     }
-
-}
-function seleccionarMascotaEnemigo(){
+        seleccionarMascotaEnemigo()
     
-let spantmascotaenemigo = document.getElementById("mascota-enemigo")}
-    
-function aleatorio(min,max) {
-    return Math.floor(Math.random()*(max - min + 1) + min) 
 }
 
+    // Elección Mascota Enemigo
+     let min = 1
+     let max = 6
+  
+     function aleatorio(min, max) {
+      return Math.floor(Math.random() * (max - min+ 1) +min)
+}
+
+     function seleccionarMascotaEnemigo(){
+     let eleccionMascota = ""
+        const opciones = ["CHARMENDER🔥", "SQUIRTLE💦", "ONIX⛰️", "VOLCANION🔥💦", "QUAGSIRE💦⛰️", "CAMERUPT🔥⛰️"]
+        const indice = aleatorio(min, max)
+        eleccionMascota += opciones[indice - 1] + ""
+
+    let spanmascotaenemigo = document.getElementById("mascota-enemigo");
+        spanmascotaenemigo.textContent = eleccionMascota
+}
+    
 window.addEventListener("load", iniciarJuego)
