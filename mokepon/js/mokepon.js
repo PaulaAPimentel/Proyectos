@@ -1,9 +1,21 @@
+//Variables
+let ataqueJugador
+   
+
+
+
+
 function iniciarJuego(){  
     let botonMascota = document.getElementById("boton-mascota")
     botonMascota.addEventListener("click", seleccionarMascotaJugador)
+
+    let botonFire = document.getElementById("boton-fire")
+    botonFire.addEventListener('click',ataqueFuego)
+    let botonWater = document.getElementById("boton-water")
+    botonWater.addEventListener('click',ataqueAgua)
+    let botonEarth = document.getElementById("boton-earth")
+    botonEarth.addEventListener('click', ataqueTierra)
 }
-
-
 
 function seleccionarMascotaJugador(){
 
@@ -38,28 +50,42 @@ function seleccionarMascotaJugador(){
         spanmascotajugador.innerHTML = ("CAMERUPT🔥⛰️")
     }
     else{
-        alert("👎NO HAZ ALEGIDO ALGUNA DE LAS OPCIONES- TRY AGAIN👎")
+        alert("👎NO HAZ ELEGIDO ALGUNA DE LAS OPCIONES- TRY AGAIN👎")
     }
-        seleccionarMascotaEnemigo()
-    
-}
-
-    // Elección Mascota Enemigo
-     let min = 1
-     let max = 6
   
-     function aleatorio(min, max) {
-      return Math.floor(Math.random() * (max - min+ 1) +min)
+        // Elección Mascota Enemigo
+        let min = 1
+        let max = 6
+     
+        function aleatorio(min, max) {
+         return Math.floor(Math.random() * (max - min+ 1) +min)
+    }
+    
+        function seleccionarMascotaEnemigo(){
+        let eleccionMascota = ""
+           const opciones = ["CHARMENDER🔥", "SQUIRTLE💦", "ONIX⛰️", "VOLCANION🔥💦", "QUAGSIRE💦⛰️", "CAMERUPT🔥⛰️"]
+           const indice = aleatorio(min, max)
+           eleccionMascota += opciones[indice - 1] + ""
+    
+       let spanmascotaenemigo = document.getElementById("mascota-enemigo");
+           spanmascotaenemigo.textContent = eleccionMascota;
+    }
+    return seleccionarMascotaEnemigo();
 }
 
-     function seleccionarMascotaEnemigo(){
-     let eleccionMascota = ""
-        const opciones = ["CHARMENDER🔥", "SQUIRTLE💦", "ONIX⛰️", "VOLCANION🔥💦", "QUAGSIRE💦⛰️", "CAMERUPT🔥⛰️"]
-        const indice = aleatorio(min, max)
-        eleccionMascota += opciones[indice - 1] + ""
+function ataqueFuego (){
+    ataqueJugador ='FIRE🔥'
+    alert(ataqueJugador)
+}
 
-    let spanmascotaenemigo = document.getElementById("mascota-enemigo");
-        spanmascotaenemigo.textContent = eleccionMascota
+function ataqueAgua (){
+    ataqueJugador ='WATER💦'
+    alert(ataqueJugador)
+}
+
+function ataqueTierra (){
+    ataqueJugador ='EARTH⛰️'
+    alert(ataqueJugador)
 }
     
 window.addEventListener("load", iniciarJuego)
